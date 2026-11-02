@@ -36,6 +36,7 @@ export function Header() {
   ] as const;
 
   return (
+    <>
     <header className={`sticky top-0 z-40 border-b transition-colors ${scrolled ? "border-border bg-background/95 backdrop-blur" : "border-transparent bg-background"}`}>
       <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-6 px-5 py-4 lg:grid-cols-[auto_1fr_auto] lg:px-8">
         <Wordmark />
