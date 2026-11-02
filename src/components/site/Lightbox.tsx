@@ -15,6 +15,7 @@ export function Lightbox({ items, index, onClose, onIndex }: { items: { src: str
 
   if (index === null) return null;
   const item = items[index];
+  if (!item) return null;
   return (
     <div role="dialog" aria-modal="true" className="fixed inset-0 z-50 flex items-center justify-center bg-charcoal/95 p-4" onClick={onClose}>
       <button aria-label="Close" className="absolute right-5 top-5 text-ivory" onClick={onClose}><X className="h-7 w-7" /></button>

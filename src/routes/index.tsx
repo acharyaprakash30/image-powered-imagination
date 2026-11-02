@@ -134,7 +134,7 @@ function Home() {
               ))}
             </ul>
           </div>
-          <img key={applications[app].image} src={applications[app].image} alt={applications[app].title} loading="lazy" className="rise-in aspect-[4/5] w-full object-cover lg:aspect-auto lg:h-full" />
+          <img key={applications[app]?.image} src={applications[app]?.image} alt={applications[app]?.title} loading="lazy" className="rise-in aspect-[4/5] w-full object-cover lg:aspect-auto lg:h-full" />
         </div>
       </section>
 
