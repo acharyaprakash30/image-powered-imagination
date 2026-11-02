@@ -61,6 +61,7 @@ export function Header() {
           </button>
         </div>
       </div>
+    </header>
 
       {open && (
         <div className="fixed inset-0 z-50 lg:hidden">
