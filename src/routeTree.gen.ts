@@ -10,33 +10,128 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as VideosRouteImport } from './routes/videos'
+import { Route as StonesIndexRouteImport } from './routes/stones.index'
+import { Route as StonesSlugRouteImport } from './routes/stones.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsRoute = ProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VideosRoute = VideosRouteImport.update({
+  id: '/videos',
+  path: '/videos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StonesIndexRoute = StonesIndexRouteImport.update({
+  id: '/stones/',
+  path: '/stones/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StonesSlugRoute = StonesSlugRouteImport.update({
+  id: '/stones/$slug',
+  path: '/stones/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/gallery': typeof GalleryRoute
+  '/projects': typeof ProjectsRoute
+  '/videos': typeof VideosRoute
+  '/stones/$slug': typeof StonesSlugRoute
+  '/stones/': typeof StonesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/gallery': typeof GalleryRoute
+  '/projects': typeof ProjectsRoute
+  '/videos': typeof VideosRoute
+  '/stones/$slug': typeof StonesSlugRoute
+  '/stones': typeof StonesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/gallery': typeof GalleryRoute
+  '/projects': typeof ProjectsRoute
+  '/videos': typeof VideosRoute
+  '/stones/$slug': typeof StonesSlugRoute
+  '/stones/': typeof StonesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/gallery'
+    | '/projects'
+    | '/videos'
+    | '/stones/$slug'
+    | '/stones/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/gallery'
+    | '/projects'
+    | '/videos'
+    | '/stones/$slug'
+    | '/stones'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/gallery'
+    | '/projects'
+    | '/videos'
+    | '/stones/$slug'
+    | '/stones/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
+  GalleryRoute: typeof GalleryRoute
+  ProjectsRoute: typeof ProjectsRoute
+  VideosRoute: typeof VideosRoute
+  StonesSlugRoute: typeof StonesSlugRoute
+  StonesIndexRoute: typeof StonesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +143,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects': {
+      id: '/projects'
+      path: '/projects'
+      fullPath: '/projects'
+      preLoaderRoute: typeof ProjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/videos': {
+      id: '/videos'
+      path: '/videos'
+      fullPath: '/videos'
+      preLoaderRoute: typeof VideosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/stones/': {
+      id: '/stones/'
+      path: '/stones'
+      fullPath: '/stones/'
+      preLoaderRoute: typeof StonesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/stones/$slug': {
+      id: '/stones/$slug'
+      path: '/stones/$slug'
+      fullPath: '/stones/$slug'
+      preLoaderRoute: typeof StonesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
+  GalleryRoute: GalleryRoute,
+  ProjectsRoute: ProjectsRoute,
+  VideosRoute: VideosRoute,
+  StonesSlugRoute: StonesSlugRoute,
+  StonesIndexRoute: StonesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
