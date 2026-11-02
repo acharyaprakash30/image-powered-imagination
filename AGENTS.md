@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Site content (stones, projects, gallery, videos, contact details) lives in src/lib/content.ts; pages read from it so the client can edit in one place.
